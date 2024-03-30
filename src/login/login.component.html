@@ -1,0 +1,16 @@
+<p *ngIf="name">{{ name }}</p>
+<div>
+  <label for="login">Login</label>
+  <input
+    type="text"
+    name="login"
+    placeholder="Enter login"
+    [(ngModel)]="user.login"
+  />
+
+  <label for="password">Password</label>
+  <input type="password" name="password" placeholder="Enter password" />
+</div>
+<p>
+  <button (click)="login()">Login</button>
+</p>
