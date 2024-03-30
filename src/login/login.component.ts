@@ -8,17 +8,22 @@ import { FormsModule } from '@angular/forms';
     standalone: true,
     imports: [FormsModule, CommonModule],
     templateUrl: './login.component.html',
-    styleUrl: './login.component.css'
+    styleUrl: './login.component.css',
 })
 export class LoginComponent {
     public name: string;
-    public user: { login, password } = {} as { login, password };
+    public user: { login; password } = {} as { login; password };
 
     constructor(private http: HttpClient) { }
 
     public login(): void {
-        let response = this.http.post('https://localhost:7149/api/user/login', { login: 'mp', password: '123' }).subscribe(x => {
-            this.name = (x as any).name;
-        });
+        let response = this.http
+            .post('https://workoutcreator.bsite.net/api/user/login', {
+                login: this.user.login,
+                password: this.user.password,
+            })
+            .subscribe((x) => {
+                this.name = (x as any).name;
+            });
     }
 }

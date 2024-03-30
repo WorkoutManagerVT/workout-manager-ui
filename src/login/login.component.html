@@ -9,7 +9,12 @@
   />
 
   <label for="password">Password</label>
-  <input type="password" name="password" placeholder="Enter password" />
+  <input
+    type="password"
+    name="password"
+    placeholder="Enter password"
+    [(ngModel)]="user.password"
+  />
 </div>
 <p>
   <button (click)="login()">Login</button>
